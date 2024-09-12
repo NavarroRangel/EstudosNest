@@ -9,7 +9,7 @@ export class EmailUnicoValidator implements ValidatorConstraintInterface {
 
     constructor (private usuarioRepository: UsuarioRepository){}
 
-    async validate(value: any, validationArguments?: ValidationArguments): Promise<boolean> {
+    async validate(value: any, validationArguments?: ValidationArguments,): Promise<boolean> {
         const usuarioComEmailExiste = await this.usuarioRepository.existeComEmail(value)
         return !usuarioComEmailExiste     }
 }

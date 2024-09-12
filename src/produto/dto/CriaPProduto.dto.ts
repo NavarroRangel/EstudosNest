@@ -1,11 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { ArrayMinSize, IsArray, IsNotEmpty, IsNumber, IsString, Min, ValidateNested } from "class-validator";
+import { ArrayMinSize, IsArray, IsNotEmpty, IsNumber, IsString, IsUUID, Min, ValidateNested } from "class-validator";
 import { CaracteristicaProdutoDTO } from "./CaracteristicaProduto.dto";
 import { Type } from "class-transformer";
 import { ImagemProdutoDTO } from "./ImagemProduto.dto";
 
 
 export class CriaProdutoDTO{
+    @IsUUID(undefined, { message: "id de usuario inválido"})
+    usuarioId:string
+
     @IsString()
     @IsNotEmpty({message:"NOME DO PRODUTO NAO PODE SER VAZIO"})
     nome:string;
